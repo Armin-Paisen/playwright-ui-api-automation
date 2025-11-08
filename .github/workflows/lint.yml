@@ -2,12 +2,11 @@ name: Lint
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-    branches: ['**']
+    # Run on all PR events that can carry new commits or changes
+    types: [opened, synchronize, reopened, ready_for_review, edited, labeled, unlabeled]
 
 jobs:
   eslint:
-    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
