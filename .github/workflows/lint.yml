@@ -3,7 +3,7 @@ name: Lint
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-    branches: ["**"]
+    branches: ['**']
 
 jobs:
   eslint:
@@ -24,4 +24,3 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
-

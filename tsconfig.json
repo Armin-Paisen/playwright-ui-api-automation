@@ -4,7 +4,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["ES2020", "DOM"],
-    "types": ["@playwright/test"],
+    "types": ["node", "@playwright/test"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -12,9 +12,5 @@
     "noEmit": true,
     "strict": true
   },
-  "include": [
-    "playwright.config.ts",
-    "tests/**/*.ts",
-    "src/**/*.ts"
-  ]
+  "include": ["playwright.config.ts", "tests/**/*.ts", "src/**/*.ts"]
 }

@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Test Automation with playwrigth for UI + API cross browser testing and Allure report",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Armin-Paisen/playwright-ui-api-automation.git"
@@ -27,14 +24,17 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint-plugin-playwright": "^0.16.0",
-    "husky": "^9.1.4"
+    "husky": "^9.1.4",
+    "prettier": "^3.3.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1"
   },
   "scripts": {
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "codegen": "playwright codegen",
-    "lint": "eslint . --ext .ts,.js",
-    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "lint": "eslint . --ext .ts,.js -c config/eslint/.eslintrc.json --ignore-path config/eslint/.eslintignore && tsc --noEmit && prettier --check . --config config/eslint/.prettierrc.json --ignore-path config/eslint/.prettierignore",
+    "lint:fix": "eslint . --ext .ts,.js -c config/eslint/.eslintrc.json --ignore-path config/eslint/.eslintignore --fix && prettier --write . --config config/eslint/.prettierrc.json --ignore-path config/eslint/.prettierignore",
     "prepare": "husky"
   }
 }
