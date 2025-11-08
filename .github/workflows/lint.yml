@@ -2,14 +2,15 @@ name: Lint
 
 on:
   pull_request:
-    # Run on all PR events that can carry new commits or changes
-    types: [opened, synchronize, reopened, ready_for_review, edited, labeled, unlabeled]
+    branches:
+      - main
+    types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -18,7 +19,7 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install deps
         run: npm ci
 
       - name: Run ESLint
